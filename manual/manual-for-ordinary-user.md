@@ -40,6 +40,7 @@ input 1~2 to select: 1
 * After input "1", you will see the prompt which let you input taxonomic group name. Just input the name you have prepared. As an example, here we input birds:
 
 ```bash
+#====================Prompt====================
 Please input the taxonomic grou name.
 Please be sure to spell correctly!
 #=====================End======================
