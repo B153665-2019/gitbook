@@ -1,5 +1,5 @@
 ---
-description: 'BPSM-Assignment02 Author: B-153665'
+description: 'BPSM-Assignment02, Author: B-XXXXXX'
 ---
 
 # Protein Sequence Analysis Script
