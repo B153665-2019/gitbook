@@ -19,8 +19,8 @@ $ python3 ./Assignment02.py
 #=======================================
 # Project: BPSM Assignment02
 # Version: 1.0
-# Author: B153665-2019
-# Github: https://github.com/B153665-2019
+# Author: BXXXXXX-2019
+# Github: https://github.com/BXXXXXX-2019
 #=======================================
 
 For analysis, you need to input: 
