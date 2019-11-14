@@ -4,10 +4,6 @@ description: Manual for people without programming background.
 
 # Manual - for Ordinary User
 
-{% hint style="success" %}
-This Manual is for anyone with biological background.
-{% endhint %}
-
 * **Please put the script \(Assignment02.py\) in a empty directory.**
 * **Switch directory to the directory where the script is located。**
 * **Use Python3 to run the script:**
@@ -43,12 +39,7 @@ input 1~2 to select: 1
 
 * After input "1", you will see the prompt which let you input taxonomic group name. Just input the name you have prepared. As an example, here we input birds:
 
-{% hint style="danger" %}
-**Please make sure your SPELLING is correct!**
-{% endhint %}
-
 ```bash
-#====================Prompt====================
 Please input the taxonomic grou name.
 Please be sure to spell correctly!
 #=====================End======================
@@ -57,10 +48,6 @@ Please input the taxonomic group you want:birds
 ```
 
 * After inputting the taxonomic name, if input correct, you will see the result\(s\) found with index. In this case, only one result of taxonomic group found, so we just input "1" :
-
-{% hint style="info" %}
-**If some other taxonomic group found, input the index of the group that you want.**
-{% endhint %}
 
 ```bash
 The following are the result(s) found by keyword that you input.
@@ -71,10 +58,6 @@ Index:1
 ```
 
 * After input the index of taxonomic group, then input the protein family name. As an example, we input   glucose-6-phosphatase here**:**
-
-{% hint style="danger" %}
-**Similarly, make sure your SPELLING is correct!**
-{% endhint %}
 
 ```bash
 #==============================Prompt==============================
