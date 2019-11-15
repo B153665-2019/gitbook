@@ -6,6 +6,10 @@ description: 'BPSM-Assignment02, Author: B-153665'
 
 ### \*\*\*\*[**GitHub Repository Address** ](https://github.com/B153665-2019/B153665-2019.Assignment2)\*\*\*\*
 
+## Process:
+
+![](.gitbook/assets/untitled-diagram.png)
+
 ## Description:
 
 A one key Python script to automatically obtain protein sequences from NCBI based on user-defined dataset which includes Taxonomic Group, Protein Family Name. And follow through Conservation analysis, Motif analysis, Hydrophobicity analysis, Charge analysis, and Consensus Sequence Analysis.
