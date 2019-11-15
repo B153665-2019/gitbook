@@ -5,22 +5,22 @@ description: Manual for people without programming background.
 # Manual - for Ordinary User
 
 * **Please put the script \(Assignment02.py\) in a empty directory.**
-* **Switch directory to the directory where the script is located。**
+* **Switch directory to the directory where the script is located.**
 * **Use Python3 to run the script:**
 
 ```bash
 $ python3 ./Assignment02.py
 ```
 
-* **You will see following prompt:**
+* **You will see the prompt.**
 * At this step, once you have prepared the dataset, input "1" to continue: 
 
 ```bash
 #=======================================
 # Project: BPSM Assignment02
 # Version: 1.0
-# Author: BXXXXXX-2019
-# Github: https://github.com/BXXXXXX-2019
+# Author: B153665-2019
+# Github: https://github.com/B153665-2019
 #=======================================
 
 For analysis, you need to input: 
@@ -38,6 +38,7 @@ input 1~2 to select: 1
 ```
 
 * After input "1", you will see the prompt which let you input taxonomic group name. Just input the name you have prepared. As an example, here we input birds:
+* **Please make sure to SPELL correctly!**
 
 ```bash
 #====================Prompt====================
@@ -48,12 +49,15 @@ Please be sure to spell correctly!
 Please input the taxonomic group you want:birds
 ```
 
-* After inputting the taxonomic name, if input correct, you will see the result\(s\) found with index. In this case, only one result of taxonomic group found, so we just input "1" :
+* After inputting the taxonomic name, if input correct, you will see result\(s\) with index. 
+* In this case, only one result of taxonomic group found, so we just input "1" :
 
 ```bash
 The following are the result(s) found by keyword that you input.
+#============================
 1. Aves
     (birds), class, birds
+#============================
 Please input the index of the taxonomic group that you want.
 Index:1
 ```
@@ -86,9 +90,9 @@ Fetching sequences, please wait..
 
 * After choosing, the sequences will be fetched soon. And you will see new prompt, the txid of the taxonomic group you have chosen, protein family keyword you have input, total sequences found, and the location of the FASTA format sequence file.
 * Then, you will have another choice. To ensure the reliability of the analysis later, we will screen out 250 sequences with the highest similarity. Of course, you can choose whether to filter or not.
-* As an example, we choose "1" here:
+* As an example, we choose "1" here, to get 250 most similar sequences:
 
-```bash
+```yaml
 The information you have chosen: 
 #=============================================================
 # txid: 8782
@@ -105,9 +109,81 @@ The information you have chosen:
 4. I will consider it again, I want to quit!
 —————————————————————————————————————————————————————————————————————
 
-input 1~3 to select: 
-
+input 1~3 to select: 1
 ```
 
-\*\*\*\*
+* The script will then go through "Look for 250 most similar sequences", "create conservation plot" and "create distance matrix". After that, the location of result files saved will be print on screen.
+* After this step, the script will ask you whether to go to next step. The next step is scan the Prosite database with the sequence we have fetched \(If you choose get 250 most similar sequences, this step will only use those 250 sequences\).
+* Here we input "1" to continue.
+
+```bash
+Finding the most similar 250 sequences, please wait...
+
+
+Building a new DB, current time: 11/14/2019 22:56:58
+New DB name:   /localdisk/home/s1940724/Assignment02-test/REF
+New DB title:  protein_family.fasta
+Sequence type: Protein
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 371 sequences in 0.0202169 seconds.
+Conservation plot processing, please wait...
+Plot conservation of a sequence alignment
+Created plotcon.svg
+Conservation Analysis Finished:
+#=============================================
+# Conservation Plot saved as: <./plotcon.svg>
+# Distance Matrix saved as: <./protein.mat>
+#=============================================
+
+Continue to scan of motif?
+Input 1 to continue, 2 to exit: 1
+```
+
+* After this process, we can get a table with sequences' accession ID and the name of motifs on those sequences. The results will show on our screen and the file will be saved, the location of the result file will be shown on screen.
+* Apart from these main functions, this script also has some optional functions. We can input "1" here to continue to the optional functions:
+* \(NOTE: If you choose get 250 most similar sequences, the next all optional functions will use those 250 sequences.\)
+
+```bash
+Processing, please wait...
+Protein Sequence XP_009903782.1 have motif(s): TNF_1
+Protein Sequence XP_009903783.1 have motif(s): TNF_1
+Protein Sequence XP_010199970.1 have motif(s): TNF_1
+Protein Sequence XP_013055223.1 have motif(s): AMIDATION
+Protein Sequence XP_008936739.1 have motif(s): AMIDATION
+Protein Sequence XP_009553670.1 have motif(s): AMIDATION
+Protein Sequence XP_009892089.1 have motif(s): AMIDATION
+Protein Sequence XP_009460192.1 have motif(s): AMIDATION
+Protein Sequence XP_009982315.1 have motif(s): AMIDATION
+Protein Sequence XP_005439497.2 have motif(s): AMIDATION
+Protein Sequence XP_009646606.1 have motif(s): AMIDATION
+Protein Sequence XP_010207957.1 have motif(s): AMIDATION
+Protein Sequence XP_010207956.1 have motif(s): AMIDATION
+Protein Sequence XP_009957477.1 have motif(s): AMIDATION
+Protein Sequence XP_009646599.1 have motif(s): AMIDATION
+Protein Sequence XP_013806897.1 have motif(s): AMIDATION
+Protein Sequence XP_009281191.1 have motif(s): AMIDATION
+Protein Sequence XP_027301312.1 have motif(s): AMIDATION
+Protein Sequence XP_005238894.2 have motif(s): AMIDATION
+#=================================
+# Motif information is saved in 
+#         <./motifs.txt>
+#      All main steps done!
+#=================================
+This script has some other optional functions, continue?
+1. Yes.
+2. No.
+Please input 1 or 2 to choose: 1
+```
+
+* There are 3 optional functions you can choose, according to your need and choose you want, all the location of output files will show on the screen, you can follow the location to find them.
+
+```bash
+————————————Optional Functions————————————
+1. Create a Consensus Sequence
+2. Create a Hydropathy Plot
+3. Create a Charge Plot
+——————————————————————————————————————————
+Please input 1 to 3 to choose: 
+```
 

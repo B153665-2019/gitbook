@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Protein Sequence Analysis Script](README.md)
+* [Protein Sequence Analysis](README.md)
 
 ## Manual
 
