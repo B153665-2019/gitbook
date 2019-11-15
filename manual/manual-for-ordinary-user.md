@@ -131,10 +131,13 @@ Conservation plot processing, please wait...
 Plot conservation of a sequence alignment
 Created plotcon.svg
 Conservation Analysis Finished:
-#=============================================
-# Conservation Plot saved as: <./plotcon.svg>
-# Distance Matrix saved as: <./protein.mat>
-#=============================================
+#=============================================')
+# Conservation Plot saved as: <./plotcon.svg>')
+# Alignment result saved as: <./alignment.fasta>')
+# Level of Conservation : <./percent_identity.txt>')
+#=============================================')
+Here, we regard mean percent identity with other sequences
+of each sequence as its level of conservation.
 
 Continue to scan of motif?
 Input 1 to continue, 2 to exit: 1

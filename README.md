@@ -2,11 +2,11 @@
 description: 'BPSM-Assignment02, Author: B-153665'
 ---
 
-# Protein Sequence Analysis
+# Protein Sequence Analysis Script
 
 ### \*\*\*\*[**GitHub Repository Address** ](https://github.com/B153665-2019/B153665-2019.Assignment2)\*\*\*\*
 
-## Process:
+## Process Flow:
 
 ![](.gitbook/assets/untitled-diagram.png)
 
@@ -19,16 +19,16 @@ A one key Python script to automatically obtain protein sequences from NCBI base
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>System Requirements:</b>
+      <th style="text-align:left"><b>Script Version:</b>
       </th>
-      <th style="text-align:left">Unix</th>
+      <th style="text-align:left">Version 1.0</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><b>Script Version:</b>
+      <td style="text-align:left"><b>System Requirement:</b>
       </td>
-      <td style="text-align:left">Version 1.0</td>
+      <td style="text-align:left">UNIX</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Software Requirement&#xFF1A;</b>
