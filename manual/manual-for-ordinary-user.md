@@ -19,7 +19,7 @@ $ python3 ./Assignment02.py
 * **You will see the prompt.**
 * At this step, once you have prepared the dataset, input "1" to continue: 
 
-```yaml
+```markup
 #=======================================
 # Project: BPSM Assignment02
 # Version: 1.0
@@ -162,7 +162,7 @@ Input 1 to continue, 2 to exit: 1
 * Apart from these main functions, this script also has some optional functions. We can input "1" here to continue to the optional functions:
 * \(NOTE: If you choose get 250 most similar sequences, the next all optional functions will use those 250 sequences.\)
 
-```yaml
+```markup
 Processing, please wait...
 Protein Sequence XP_009903782.1 have motif(s): TNF_1
 Protein Sequence XP_009903783.1 have motif(s): TNF_1
