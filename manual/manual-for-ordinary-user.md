@@ -134,6 +134,15 @@ Conservation plot processing, please wait...
 Plot conservation of a sequence alignment
 Created plotcon.svg
 Conservation Analysis Finished:
+
+Five sequences have highest conservation level are:
+Accession ID	Level_of_Conservation
+XP_009323684.1	91.13662111599999
+XP_010190172.1	91.10564185600002
+XP_010565519.1	91.12379761199992
+XP_011577872.1	91.12379761199992
+XP_029874515.1	91.12379761199992
+
 #=============================================')
 # Conservation Plot saved as: <./plotcon.svg>')
 # Alignment result saved as: <./alignment.fasta>')
