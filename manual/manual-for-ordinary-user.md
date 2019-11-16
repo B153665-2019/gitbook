@@ -6,6 +6,7 @@ description: Manual for people without programming background.
 
 * **Please put the script \(Assignment02.py\) in a empty directory.**
 * **Switch directory to the directory where the script is located.**
+* **Here, we make a directory called "B153665", and put the script to this directory.**
 * **Use Python3 to run the script:**
 
 ```bash
