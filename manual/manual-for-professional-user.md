@@ -164,7 +164,7 @@ else:
 * If user choose to get 250 most similar sequence, call function "get\_250\_sequence\(\)".
 * The "get\_250\_sequence\(\)" function has these steps to get 250 most similar sequences:
 
-1.Using clustalo's distmat to align all of the sequences in pairs, and get a distance matrix. the row of the matrix represent the distance score between one sequence and another sequence. And the less the score, the more closer. After getting the distance matrix, open, read and split that in lines. Using regular expression to substitute more than one space to only one space, which is for split in next step \(if split in space, more than one space will cause problem\). Then use for loop to calculate the sum of score.
+1 Using clustalo's distmat to align all of the sequences in pairs, and get a distance matrix. the row of the matrix represent the distance score between one sequence and another sequence. And the less the score, the more closer. After getting the distance matrix, open, read and split that in lines. Using regular expression to substitute more than one space to only one space, which is for split in next step \(if split in space, more than one space will cause problem\). Then use for loop to calculate the sum of score.
 
 ```python
 os.system("clustalo -i " + protein_family_250 + " --distmat-out=protein.mat --threads=10 --full --force -o ./alignment_ge_250.fasta")
@@ -183,7 +183,7 @@ distmat=open('protein.mat').read().split('\n')
 		score_dict[num_with_name[0]]=total_score
 ```
 
-2. Find out the sequence with lowest sum of score, which means lowest sum of distance: Firstly we sort the sum of score, then get the ID of sequence with the lowest score, and fetch this sequence in a new file by using efetch:
+3 Find out the sequence with lowest sum of score, which means lowest sum of distance: Firstly we sort the sum of score, then get the ID of sequence with the lowest score, and fetch this sequence in a new file by using efetch:
 
 ```python
 score_dict=sorted(score_dict.items(), key=lambda d:d[1], reverse = False)
@@ -191,7 +191,7 @@ ref_seq=score_dict[0][0]
 os.system("efetch -db protein -id " + ref_seq + " -format fasta>./ref_seq.fasta")
 ```
 
-3. Use this sequence to query other sequences. Other sequences have been set as a blast database:
+4 Use this sequence to query other sequences. Other sequences have been set as a blast database:
 
 ```python
 #set blast database
@@ -201,7 +201,7 @@ os.system("makeblastdb -in " + protein_family_250 + " -dbtype prot -out REF")
 os.system("blastp -db REF -query ./ref_seq.fasta -outfmt 7 > blastoutput.out")
 ```
 
-4. Find out 250 sequences with higher bit score \(blastp\). Open the blastp result file in lines, and define to a variable "blast\_result". Use several for loops to get useful lines \(the lines start with "\#" don't have info we want, so we discard those lines\) and sort the result by bit score, bit score is in last field so we get "fields\[-1\]". After that, the sorted info is in a list, that variable called "seq\_id".
+5 Find out 250 sequences with higher bit score \(blastp\). Open the blastp result file in lines, and define to a variable "blast\_result". Use several for loops to get useful lines \(the lines start with "\#" don't have info we want, so we discard those lines\) and sort the result by bit score, bit score is in last field so we get "fields\[-1\]". After that, the sorted info is in a list, that variable called "seq\_id".
 
 ```python
 	blast_result=open('blastoutput.out').read().split('\n')
@@ -231,7 +231,7 @@ os.system("blastp -db REF -query ./ref_seq.fasta -outfmt 7 > blastoutput.out")
 	seq_id=sorted(seq_id.items(), key=lambda d:d[1], reverse = True)
 ```
 
-5. Get the top 250 of variable "seq\_id", which are the sequence IDs which are most similar:
+6 Get the top 250 of variable "seq\_id", which are the sequence IDs which are most similar:
 
 NOTE: If get no more than 250 sequences, or  0 sequence, which means the sequences fetched have problem \(e.g. A partial sequence is regarded as reference sequence or other problems\). So, here let user to re-input the query information and call the "input\_info\(\)" function again.
 
@@ -248,7 +248,7 @@ if len(seq_id) < 250:
 seq_id=seq_id[0:250]
 ```
 
-6. Fetch those 250 sequences to a new file by using efetch. Firstly join the list with comma, because fetching multiple sequences on efetch need to use comma to separate.
+7 Fetch those 250 sequences to a new file by using efetch. Firstly join the list with comma, because fetching multiple sequences on efetch need to use comma to separate.
 
 ```python
 seq_250_name=[]
@@ -291,11 +291,11 @@ for n in score_dict:
 * After do the conservation analysis, next step is scan the prosite database with the sequence we have gotten \(If choose 250 most similar sequence, here use those 250 sequences\).
 * Because the EMBOSS tool "patmatmotifs" we use only can scan one sequence each time, So:
 
-1.Split the fasta file which with many sequences: get each sequence by for loop and write as a "cache" fasta file.
+1 Split the fasta file which with many sequences: get each sequence by for loop and write as a "cache" fasta file.
 
-2.Use that "cache" fasta sequence to scan the prosite db, in the mean time, get the motif name, store the accession ID and motif name in a dictionary called "motifs\_dic".
+2 Use that "cache" fasta sequence to scan the prosite db, in the mean time, get the motif name, store the accession ID and motif name in a dictionary called "motifs\_dic".
 
-3.After one sequence finished, open another sequence and repeat again and again, for more detail is described in comments:
+3 After one sequence finished, open another sequence and repeat again and again, for more detail is described in comments:
 
 ```python
 	#open fasta file with many sequences
