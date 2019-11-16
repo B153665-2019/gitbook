@@ -371,7 +371,7 @@ for n in score_dict:
 	open('motifs.txt','w').write('\n'.join(final_motifs))
 ```
 
-* After scan of motif finished, then go to optional step. Optional step include the using of EMBOSS tools:
+* After scan of motif finished, then go to optional step. Optional step include the using of EMBOSS tools. Just use "cons", "pepwindowall" and "charge" can get the consensus sequence, hydropathy plot and charge plot respectively.
 
 ```python
 os.system("cons -sequence " + cs_input + " -outseq ./consensus_sequence.fasta")
