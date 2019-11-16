@@ -9,6 +9,9 @@ description: Manual for people without programming background.
 * **Use Python3 to run the script:**
 
 ```bash
+$ mkdir B153665
+$ cd ./B153665
+$ cp <the script you have downloaded> ./
 $ python3 ./Assignment02.py
 ```
 
