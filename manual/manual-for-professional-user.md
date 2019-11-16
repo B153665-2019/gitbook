@@ -381,7 +381,7 @@ os.system("pepwindowall " + hydropathy_input + " -graph svg -gxtitle \'Amino Aci
 os.system("charge -seqall " + charge_input + " -graph svg -plot")
 ```
 
-
+* All steps done.
 
 
 
