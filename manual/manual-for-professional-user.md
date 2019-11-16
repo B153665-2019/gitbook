@@ -43,7 +43,106 @@ def start_confirmation():
 		exit()
 ```
 
-* dd
+* If user input "1" in last step, the function "input\_info\(\)" will be called. Firstly, the "input\_info\(\)" will give user some prompt, and let user to input the name of taxonomic group, and assign the input string to a variable. For avoid unnecessary trouble, lower all character and replace all space to +. \(In NCBI query, "+" represent space.
+
+```python
+raw_taxonomic_group = input("Please input the taxonomic group you want:")
+raw_taxonomic_group = raw_taxonomic_group.lower()
+raw_taxonomic_group = raw_taxonomic_group.replace(' ','+')
+```
+
+* After process the characters, use esearch and efetch to query the NCBI taxonomy database. the result include the taxonomic group name and index. Read all these information in a variable:
+
+```python
+taxonomic_group_txt=os.popen("esearch -db taxonomy -query " + raw_taxonomic_group + " | efetch -format txt").read().split('\n')
+```
+
+* Use which loop to determine whether the result of query is null \(the variable is null\). If so, means no result found in query, let user to re-input the taxonomy group name until the variable is not null, jump out of loop.
+
+```python
+while taxonomic_group_txt[0]=='':
+    ...
+    ...
+    taxonomic_group_txt=os.popen("esearch -db taxonomy -query " + raw_taxonomic_group + " | efetch -format txt").read().split('\n')
+```
+
+* The result can be one taxonomic group or more than one. And the each group occupy 2 lines of result:
+
+```python
+1. Aves
+    (birds), class, birds
+```
+
+* So, we could use this loop to print out the result and count how many group found \(t\):
+
+```python
+	t=0
+	for line in range(round(len(taxonomic_group_txt)/2)):
+		print("\033[0;32m%s\033[0m" % taxonomic_group_txt[t])
+		print(taxonomic_group_txt[t+1])
+		t+=2
+	print("#============================")
+```
+
+* Let user to input the index and we use efetch again to get the txid, the index that user input represent a txid, the txid is for following step. If the index input is "1", 1-1=0, txid\[0\] is the corresponding txid
+
+```python
+	input_index = int(input_index)
+	txid = os.popen("esearch -db taxonomy -query " + raw_taxonomic_group + " | efetch").read().split('\n')
+	txid = txid[int(input_index)-1]
+```
+
+* After confirm the taxonomic, let user input Protein Family name. Subsequently, let user choose whether add \[NOT PARTIAL\] and \[NOT PREDICTED\] as query criteria. \[NOT PARTIAL\] means filter the partial sequence, and \[NOT PREDICTED\] means filter the predicted sequence. The error trap here use the regular expression to match.
+
+```python
+	#input the protein family name
+	protein_family = input("Input the protein family :")
+	#replace space with +, because space sometimes cause problem.
+	protein_family = protein_family.replace(' ','+')
+	#lower the letter, for inputting in the query of esearch
+	protein_family = protein_family.lower()
+
+	#ask user whether to add NOT PARTIAL
+	print('Whether add [NOT PARTIAL] to query?')
+	print('1. Yes')
+	print('2. No')
+	input_not_partial= input("Please input 1 or 2 :")
+	while re.match('^[1-2]$',str(input_not_partial)) is None:
+		print('Invalid Input, please input only 1 or 2 :')
+		input_not_partial = input("Input the index :")
+
+	#ask user whether to add NOT PREDICTED
+	print('Whether add [NOT PREDICTED] to query?')
+	print('1. Yes')
+	print('2. No')
+	input_not_predicted= input("Please input 1 or 2 :")
+	while re.match('^[1-2]$',str(input_not_predicted)) is None:
+		print('Invalid Input, please input only 1 or 2 :')
+		input_not_predicted = input("Input the index :")
+
+	#assign variables of NOT PARTIAL and NOT PREDICTED for next step
+	if input_not_partial == '1':
+		not_partial = ' NOT PARTIAL'
+	else:
+		not_partial = ''
+
+	if input_not_predicted == '1':
+		not_predicted = ' NOT PREDICTED'
+	else:
+		not_predicted = ''
+```
+
+* Query the NCBI database with txid, Protein Family Name, the some variable, at this step, don't directly fetch the sequence but get the information of query result, if there are too many sequences found, fetch the sequence directly take too much time.
+* Here, the query result format is XML, we use et package that we have imported to get the count of sequence:
+
+```python
+	os.system("esearch -db protein -query \"txid" + txid + "[Organism]+" + protein_family + "[TI]" + not_partial + not_predicted + "\" >./esearch.xml")
+	parser = et.parse("esearch.xml")
+	root = parser.getroot()
+	esearch_count = root[3].text
+```
+
+
 
 ```python
 def input_info():
