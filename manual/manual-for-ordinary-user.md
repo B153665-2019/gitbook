@@ -52,8 +52,8 @@ Please be sure to spell correctly!
 Please input the taxonomic group you want:birds
 ```
 
-* After inputting the taxonomic name, if input correct, you will see result\(s\) with index. 
-* In this case, only one result of taxonomic group found, so we just input "1" :
+* After inputting the taxonomic group name, if input correct, you will see result\(s\) with index. 
+* In this case, only one result of taxonomic group found \(birds\) , so we just input "1" :
 
 ```bash
 The following are the result(s) found by keyword that you input.
@@ -65,7 +65,7 @@ Please input the index of the taxonomic group that you want.
 Index:1
 ```
 
-* After input the index of taxonomic group, then input the protein family name. As an example, we input   glucose-6-phosphatase here**:**
+* After input the index of taxonomic group, then input the protein family name. As an example, we input   "glucose-6-phosphatase" here**:**
 
 ```bash
 #==============================Prompt==============================
@@ -92,7 +92,7 @@ Fetching sequences, please wait..
 ```
 
 * After choosing, the sequences will be fetched soon. And you will see new prompt, the txid of the taxonomic group you have chosen, protein family keyword you have input, total sequences found, and the location of the FASTA format sequence file.
-* Then, you will have another choice. To ensure the reliability of the analysis later, we will screen out 250 sequences with the highest similarity. Of course, you can choose whether to filter or not.
+* Then, you will have another choice. To ensure the reliability of the analysis later, we will help you to find out 250 sequences with the highest similarity. Of course, you can choose whether to find or not.
 * As an example, we choose "1" here, to get 250 most similar sequences:
 
 ```yaml
@@ -115,7 +115,7 @@ The information you have chosen:
 input 1~3 to select: 1
 ```
 
-* The script will then go through "Look for 250 most similar sequences", "create conservation plot" and "create distance matrix". After that, the location of result files saved will be print on screen.
+* The script will then go through "Looking for 250 most similar sequences", "create conservation plot" and "create distance matrix". After that, the location of result files saved will be print on screen.
 * After this step, the script will ask you whether to go to next step. The next step is scan the Prosite database with the sequence we have fetched \(If you choose get 250 most similar sequences, this step will only use those 250 sequences\).
 * Here we input "1" to continue.
 
@@ -191,5 +191,30 @@ Please input 1 or 2 to choose: 1
 3. Create a Charge Plot
 ——————————————————————————————————————————
 Please input 1 to 3 to choose: 
+```
+
+```yaml
+Create a consensus sequence from a multiple alignment
+#=============================================
+#        Consensus Sequence saved as: 
+#        <./consensus_sequence.fasta>
+#=============================================
+
+
+Draw Kyte-Doolittle hydropathy plot for a protein alignment
+Created Hydropathy.svg
+#============================================
+#  Kyte-Doolittle hydropathy Plot saved as: 
+#          <./Hydropathy.svg>
+#============================================
+
+
+Draw a protein charge plot
+Created charge.svg
+#==================================
+#        Charge Plot saved as: 
+#         <./charge.svg>
+#==================================
+
 ```
 
