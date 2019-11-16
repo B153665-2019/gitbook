@@ -66,6 +66,8 @@ Index:1
 ```
 
 * After input the index of taxonomic group, then input the protein family name. As an example, we input   "glucose-6-phosphatase" here**:**
+* **NOTE: Please DON NOT use plural form of a protein family! \(ABC transporter rather than ABC transporters\)**
+* **NOTE: Please SPELL correctly!**
 
 ```bash
 #==============================Prompt==============================
@@ -124,7 +126,7 @@ Finding the most similar 250 sequences, please wait...
 
 
 Building a new DB, current time: 11/14/2019 22:56:58
-New DB name:   /localdisk/home/s1940724/Assignment02-test/REF
+New DB name:   /localdisk/REF
 New DB title:  protein_family.fasta
 Sequence type: Protein
 Keep MBits: T
@@ -138,10 +140,10 @@ Conservation Analysis Finished:
 Five sequences have highest conservation level are:
 Accession ID	Level_of_Conservation
 XP_009323684.1	91.13662111599999
-XP_010190172.1	91.10564185600002
 XP_010565519.1	91.12379761199992
 XP_011577872.1	91.12379761199992
 XP_029874515.1	91.12379761199992
+XP_010190172.1	91.10564185600002
 
 #=============================================')
 # Conservation Plot saved as: <./plotcon.svg>')
