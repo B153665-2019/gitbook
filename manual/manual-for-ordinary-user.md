@@ -18,7 +18,7 @@ $ python3 ./Assignment02.py
 * **You will see the prompt.**
 * At this step, once you have prepared the dataset, input "1" to continue: 
 
-```bash
+```yaml
 #=======================================
 # Project: BPSM Assignment02
 # Version: 1.0
@@ -119,7 +119,7 @@ input 1~3 to select: 1
 * After this step, the script will ask you whether to go to next step. The next step is scan the Prosite database with the sequence we have fetched \(If you choose get 250 most similar sequences, this step will only use those 250 sequences\).
 * Here we input "1" to continue.
 
-```bash
+```markup
 Finding the most similar 250 sequences, please wait...
 
 
@@ -159,7 +159,7 @@ Input 1 to continue, 2 to exit: 1
 * Apart from these main functions, this script also has some optional functions. We can input "1" here to continue to the optional functions:
 * \(NOTE: If you choose get 250 most similar sequences, the next all optional functions will use those 250 sequences.\)
 
-```bash
+```yaml
 Processing, please wait...
 Protein Sequence XP_009903782.1 have motif(s): TNF_1
 Protein Sequence XP_009903783.1 have motif(s): TNF_1
